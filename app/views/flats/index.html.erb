@@ -1,0 +1,21 @@
+<h1><%= "All our Flats (#{@flats.length})" %></h1>
+
+
+
+
+
+<div class="container mx-0">
+<div class="row justify-content-md-center">
+<% @flats.each do |flat| %>
+<div class="card col-4 my-2">
+  <img src="https://loremflickr.com/320/240/<%=flat.address.split(' ').last%>" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title"><%= flat.name  %></h5>
+    <p class="card-text"><%= "#{flat.description.first(150)}..."%></p>
+    <p class="card-text"><i class="fa-solid fa-person"></i>  <%=flat.number_of_guests%>  <i class="fa-solid fa-euro-sign"></i>  <%=flat.price_per_night%></p>
+    <div class="btn btn-primary"><p><%= link_to "More info", flat_path(flat) %></p></div>
+  </div>
+</div>
+<% end %>
+</div>
+</div>
